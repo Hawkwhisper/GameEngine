@@ -1,0 +1,5 @@
+* {
+    font-family: var(--font-main);
+    color: var(--fg-default);
+    text-shadow: var(--sh-text-default);
+}

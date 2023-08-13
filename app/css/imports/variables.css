@@ -1,0 +1,49 @@
+/* Variables */
+:root {
+    /* Palettes */
+    --palette-dark1: #07070A;
+    --palette-dark2: #1a1e1e;
+    --palette-dark3: #041F1E;
+    --palette-mid1: #24272B;
+    --palette-mid2: #4A525A;
+    --palette-light1: #004BA8;
+    --palette-light2: #3E78B2;
+    --palette-light3: #dee7f0;
+    
+    /* Fonts */
+    --font-main: MainFont;
+    --font-header: monospace;
+
+    /* Foreground Colors */
+    --fg-default: var(--palette-light3);
+
+    /* Background Colors */
+    --bg-default: linear-gradient(0deg, var(--palette-dark1) 0%, var(--palette-dark2) 100%);
+    --bg-header: var(--palette-dark2);
+    --bg-footer: var(--palette-dark2);
+
+    /* Shadows */
+    --sh-text-default: 0px 0px .0125em #000, 
+    .0125em .0125em .0125em var(--palette-dark1),
+    .0125em -.0125em .0125em var(--palette-dark2),
+    -.0125em -.0125em .0125em var(--palette-dark1),
+    -.0125em .0125em .0125em var(--palette-dark3);
+
+    --sh-box-default: .015em .015em .015em #000, 0px 0px .05em var(--palette-mid2) inset;
+    --sh-header: 0px 1px .05em var(--palette-dark1);
+    --sh-footer: 0px -1px .05em var(--palette-dark1);
+
+    /* Borders */
+    --bd-default: solid 1px var(--palette-mid1);
+    --bd-default-side-top-color: var(--palette-mid1);
+    --bd-default-side-bottom-color: var(--palette-mid2);
+    --bd-default-side-left-color: var(--palette-mid1);
+    --bd-default-side-right-color: var(--palette-mid2);
+    --bd-default-radius: 7px;
+
+    /* Margins / Paddings */
+
+    --pd-standard: .25em;
+
+    /* Filters */
+}

@@ -1,0 +1,30 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+body {
+    background: var(--bg-default);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+header {
+    padding: var(--pd-standard);
+    background: var(--bg-header);
+    border-bottom: solid 1px;
+    border-bottom-color: var(--bd-default-side-bottom-color);
+    box-shadow: var(--sh-header);
+}
+
+footer {
+    padding: var(--pd-standard);
+    background: var(--bg-footer);
+    border-top: solid 1px;
+    border-top-color: var(--bd-default-side-top-color);
+    box-shadow: var(--sh-footer);
+}

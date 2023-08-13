@@ -1,0 +1,18 @@
+.fx {
+}
+
+.fx.bordered {
+    border: var(--bd-default);
+    border-top-color: var(--bd-default-side-top-color);
+    border-bottom-color: var(--bd-default-side-bottom-color);
+    border-left-color: var(--bd-default-side-left-color);
+    border-right-color: var(--bd-default-side-right-color);
+}
+
+.fx.shadow {
+    box-shadow: var(--sh-box-default);
+}
+
+.fx.rounded {
+    border-radius: var(--bd-default-radius);
+}

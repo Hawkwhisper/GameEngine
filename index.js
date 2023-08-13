@@ -1,45 +1,21 @@
 const { app, BrowserWindow, Menu, ipcMain, dialog } = require("electron");
 app.commandLine.appendSwitch("force-color-profile=srgb");
 
-const path = require("path");
+/**
+ * Create IPC handlers to handle messages sent from the 
+ * rendering dom
+ */
 
+/**
+ * Reloads the dom
+ */
 ipcMain.handle("app-reload", async (event, ...args) => {
   Windows["default"].webContents.reloadIgnoringCache();
 });
 
-ipcMain.handle("open-playtest", async (event, ...args) => {
-  createNewWindow("playtest", "PlayTest/index.html", {
-    width: 896 + 8,
-    height: 480 + 8,
-    modal: true,
-    parent: Windows["default"],
-  });
-  Windows["playtest"].webContents.send('ping', ...args);
-});
-
-ipcMain.handle("open-playtest-editor", async (event, ...args) => {
-  createNewWindow("playtest-editor", "PlayTest/config.html", {
-    width: 640,
-    height: 360,
-    modal: true,
-    transparent: true,
-    parent: Windows["default"],
-  });
-  Windows["playtest-editor"].setMenu(new Menu(null));
-  Windows["playtest-editor"].webContents.openDevTools();
-});
-
-ipcMain.handle("open-animation-editor", async (event, ...args) => {
-  createNewWindow("animation-editor", "animEditor/_app/index.html", {
-    width: 1280,
-    height: 720,
-    frame: true,
-    modal: true,
-    parent: Windows["default"],
-  });
-  Windows["animation-editor"].setMenu(new Menu(null));
-});
-
+/**
+ * Minimizes the window
+ */
 ipcMain.handle("win-minimize", async (event, ...args) => {
   var win = null;
   BrowserWindow.getAllWindows().map((w) => {
@@ -49,6 +25,9 @@ ipcMain.handle("win-minimize", async (event, ...args) => {
   return null;
 });
 
+/**
+ * Maximizes the window
+ */
 ipcMain.handle("win-maximize", async (event, ...args) => {
   var win = null;
   BrowserWindow.getAllWindows().map((w) => {
@@ -58,6 +37,9 @@ ipcMain.handle("win-maximize", async (event, ...args) => {
   return null;
 });
 
+/**
+ * Closes the window
+ */
 ipcMain.handle("win-close", async (event, ...args) => {
   var win = null;
   BrowserWindow.getAllWindows().map((w) => {
@@ -66,33 +48,23 @@ ipcMain.handle("win-close", async (event, ...args) => {
   win.close();
   return null;
 });
-ipcMain.handle("open-proj", async (event, ...args) => {
-  var win = null;
-  BrowserWindow.getAllWindows().map((w) => {
-    if (w.webContents.id == event.sender.id) win = w;
-  });
-  dialog
-    .showOpenDialog(win, {
-      properties: ["openDirectory"],
-    })
-    .then((d) => {
-      win.webContents.send(`proj`, d);
-    });
-  return null;
-});
 
-ipcMain.handle("modal", async (event, options) => {
-  var win = null;
-  BrowserWindow.getAllWindows().map((w) => {
-    if (w.webContents.id == event.sender.id) win = w;
-  });
-});
 
+/**
+ * Global window variable for accessing other windows from
+ * ... well, other windows, I guess
+ */
 var Windows = {
   default: null,
 };
 
-function createNewWindow(name, src, settings) {
+/**
+ * 
+ * @param {string} name 
+ * @param {string} index_file 
+ * @param {ElementCreationOptions} settings 
+ */
+function createNewWindow(name, index_file, settings) {
   // Create the browser window.
   const _defaults = {
     width: 800,
@@ -106,24 +78,22 @@ function createNewWindow(name, src, settings) {
   for (let i in settings) _defaults[i] = settings[i];
 
   Windows[name] = new BrowserWindow(_defaults);
-  Windows[name].loadFile(src);
+  Windows[name].loadFile(index_file);
 }
 
-const createDefaultWindow = () => {
-  createNewWindow("default", "_app/index.html", {
-    width: 1280,
-    height: 720,
-    transparent: true,
-    frame: false,
-  });
-  createNewWindow("splash", "_app/splash.html", {
+/**
+ * Creates the default window
+ */
+function createDefaultWindow() {
+  createNewWindow("main", "app/index.html", {
     width: 896 + 8,
     height: 480 + 8,
     transparent: true,
     frame: false,
-    modal: true,
     parent: Windows["default"],
   });
+
+  Windows['main'].openDevTools();
 };
 
 app.whenReady().then(() => {
