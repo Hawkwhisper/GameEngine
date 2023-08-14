@@ -2,6 +2,7 @@
 :root {
     /* Palettes */
     --palette-dark1: #07070A;
+    --palette-dark1-alpha: #07070A0f;
     --palette-dark2: #1a1e1e;
     --palette-dark3: #041F1E;
     --palette-mid1: #24272B;
@@ -9,6 +10,20 @@
     --palette-light1: #004BA8;
     --palette-light2: #3E78B2;
     --palette-light3: #dee7f0;
+
+    /* Nav */
+    --nav-bg-button: var(--palette-dark1-alpha);
+    --nav-bd: solid 1px var(--palette-dark3);
+    --nav-button-bd-radius: 7px;
+
+    --nav-button-bg-close: #ff300050;
+    --nav-button-bg-maximize: #7bff0050;
+    --nav-button-bg-minimize: #0084ff50;
+    --nav-button-bg-menu: var(--palette-mid1);
+    --nav-button-bg-filter: blur(5px) brightness(76%);
+
+
+    --nav-sh-box: 0px 0px .25em var(--palette-dark2) inset, 0px .015em .1em #000;
     
     /* Fonts */
     --font-main: MainFont;
@@ -29,6 +44,7 @@
     -.0125em -.0125em .0125em var(--palette-dark1),
     -.0125em .0125em .0125em var(--palette-dark3);
 
+    --sh-box-win: .015em .015em 1em #000, 0px 0px .05em var(--palette-mid2) inset;
     --sh-box-default: .015em .015em .015em #000, 0px 0px .05em var(--palette-mid2) inset;
     --sh-header: 0px 1px .05em var(--palette-dark1);
     --sh-footer: 0px -1px .05em var(--palette-dark1);
@@ -39,7 +55,9 @@
     --bd-default-side-bottom-color: var(--palette-mid2);
     --bd-default-side-left-color: var(--palette-mid1);
     --bd-default-side-right-color: var(--palette-mid2);
-    --bd-default-radius: 7px;
+    --bd-default-radius: 32px;
+
+    --bd-win-radius: 16px;
 
     /* Margins / Paddings */
 

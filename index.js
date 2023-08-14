@@ -18,10 +18,13 @@ ipcMain.handle("app-reload", async (event, ...args) => {
  */
 ipcMain.handle("win-minimize", async (event, ...args) => {
   var win = null;
+  console.log(event.sender.id);
   BrowserWindow.getAllWindows().map((w) => {
+    console.log(w.webContents.id);
     if (w.webContents.id == event.sender.id) win = w;
   });
-  win.minimize();
+  win._events.minimize();
+  console.log(win)
   return null;
 });
 

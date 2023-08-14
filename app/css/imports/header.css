@@ -1,0 +1,80 @@
+/* Nav Buttons */
+header nav {
+    -webkit-app-region: none;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    word-spacing: -9999px;
+    letter-spacing: -9999px;
+    height: 80% !important;
+    position: absolute;
+    top: 0px;
+}
+header nav.left {
+    left: var(--bd-win-radius);
+}
+
+header nav.right {
+    right: var(--bd-win-radius);
+}
+/* ----------------------------------------- */
+header nav button {
+    backdrop-filter: var(--nav-button-bg-filter);
+    background: var(--nav-bg-button);
+    border: none;
+    border-right: var(--nav-bd);
+    aspect-ratio: 16/9;
+    height: 100% !important;
+    box-shadow: var(--nav-sh-box);
+    outline: none;
+}
+
+header nav button:first-child {
+    border-radius: 0px 0px 0px var(--nav-button-bd-radius);
+}
+
+header nav button:last-child {
+    border-radius: 0px 0px var(--nav-button-bd-radius) 0px;
+}
+
+header nav button:only-child {
+    border-radius: 0px 0px var(--nav-button-bd-radius) var(--nav-button-bd-radius);
+}
+
+/* Close, Min and Max styling */
+
+header nav button#close:hover {
+    background: var(--nav-button-bg-close);
+}
+
+header nav button#maximize:hover {
+    background: var(--nav-button-bg-maximize);
+}
+
+header nav button#minimize:hover {
+    background: var(--nav-button-bg-minimize);
+}
+
+header nav button#win_menu span {
+    position: relative;
+    display: inline-block;
+    text-decoration: underline;
+    transform: rotateZ(90deg) !important;
+}
+
+header nav button#win_menu:hover {
+    background: var(--nav-button-bg-menu);
+}
+/* ----------------------------------------- */
+
+
+/* Title */
+header title_label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    display: block;
+
+    transform: translate(-50%, -50%);
+}
