@@ -23,7 +23,7 @@ ipcMain.handle("win-minimize", async (event, ...args) => {
     console.log(w.webContents.id);
     if (w.webContents.id == event.sender.id) win = w;
   });
-  win._events.minimize();
+  win.minimize();
   console.log(win)
   return null;
 });

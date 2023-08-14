@@ -1,19 +1,22 @@
 const { ipcRenderer } = require('electron');
 const get = el=>document.getElementById(el);
+const tget = el=>document.getElementsByTagName(el);
 
 (()=>{
 
     async function closeWindow() {
-        const result = await ipcRenderer.invoke('win-close');
+        await ipcRenderer.invoke('win-close');
     }
 
     async function minimizeWindow() {
-        const result = await ipcRenderer.invoke('win-minimize');
+        await ipcRenderer.invoke('win-minimize');
     }
 
     async function maximizeWindow() {
-        const result = await ipcRenderer.invoke('win-maximize');
+        await ipcRenderer.invoke('win-maximize');
     }
     get('minimize').addEventListener('click', minimizeWindow);
+    get('maximize').addEventListener('click', maximizeWindow);
+    get('close').addEventListener('click', closeWindow);
 })();
 
