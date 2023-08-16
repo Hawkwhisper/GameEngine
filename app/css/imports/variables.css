@@ -2,11 +2,12 @@
 :root {
     /* Palettes */
     --palette-dark1: #07070A;
-    --palette-dark1-alpha: #07070A0f;
+    --palette-dark1-alpha: #07070A0F;
     --palette-dark2: #1a1e1e;
     --palette-dark3: #041F1E;
     --palette-mid1: #24272B;
     --palette-mid2: #4A525A;
+    --palette-mid2-alpha: #4A525A1F;
     --palette-light1: #004BA8;
     --palette-light2: #3E78B2;
     --palette-light3: #dee7f0;
@@ -22,8 +23,11 @@
     --nav-button-bg-menu: var(--palette-mid1);
     --nav-button-bg-filter: blur(5px) brightness(76%);
 
+    --nav-menu-bg-default: var(--palette-mid1);
+    --nav-menu-width: 100%;
 
     --nav-sh-box: 0px 0px .25em var(--palette-dark2) inset, 0px .015em .1em #000;
+    --nav-sh-menu: 0px 0px .25em var(--palette-dark2) inset, 0px .015em .1em #00000020;
     
     /* Fonts */
     --font-main: MainFont;
@@ -36,6 +40,8 @@
     --bg-default: linear-gradient(0deg, var(--palette-dark1) 0%, var(--palette-dark2) 100%);
     --bg-header: var(--palette-dark2);
     --bg-footer: var(--palette-dark2);
+
+    --bg-sidebar: var(--palette-dark2);
 
     /* Shadows */
     --sh-text-default: 0px 0px .0125em #000, 
@@ -55,13 +61,17 @@
     --bd-default-side-bottom-color: var(--palette-mid2);
     --bd-default-side-left-color: var(--palette-mid1);
     --bd-default-side-right-color: var(--palette-mid2);
+    
+    --bd-sidebar: dashed 1px var(--palette-mid2-alpha);
+    
     --bd-default-radius: 32px;
-
     --bd-win-radius: 16px;
 
     /* Margins / Paddings */
 
     --pd-standard: .25em;
+    --pd-standard-half: .125em;
+    --pd-standard-quarter: .0625em;
 
     /* Filters */
 }

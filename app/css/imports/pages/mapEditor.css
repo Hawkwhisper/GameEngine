@@ -1,0 +1,28 @@
+main div {
+    position: relative;
+}
+
+main .mapEditor {
+    display: grid;
+    grid-template-columns: auto 1fr;    
+    height: 100%;
+    z-index: 1;
+    position: relative;
+}
+
+main .mapEditor .sidebar {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    background: var(--bg-sidebar);
+    height: 100%;
+    min-width: 192px;
+    border-right: var(--bd-sidebar);
+}
+
+main .mapEditor .sidebar .tileSelector {
+    
+}
+
+main .mapEditor .editor {
+
+}

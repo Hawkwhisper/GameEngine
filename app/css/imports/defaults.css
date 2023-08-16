@@ -3,3 +3,18 @@
     color: var(--fg-default);
     text-shadow: var(--sh-text-default);
 }
+
+img, canvas {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    image-rendering: optimizeSpeed;
+
+    object-fit: contain;
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: black;
+}

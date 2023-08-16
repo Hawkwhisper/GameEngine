@@ -1,22 +1,96 @@
-const { ipcRenderer } = require('electron');
-const get = el=>document.getElementById(el);
-const tget = el=>document.getElementsByTagName(el);
+const { Header, Main } = require('./libs/')
+const BodyContainer = document.getElementById('main');
 
+const HeaderNav = new Header.Nav([
+    {
+        label: "File",
+        submenu: [
+            {
+                label: "New",
+                icon: "file_open",
+                actions: {
+                    click: [e => {
+                        
+                    }]
+                }
+            },
+            {
+                label: "Open",
+                icon: "file_open",
+                actions: {
+                    click: [e => {
+                        
+                    }]
+                }
+            },
+            {
+                label: "Open",
+                icon: "file_open",
+                actions: {
+                    click: [e => {
+                        
+                    }]
+                }
+            },
+            {
+                label: "Open",
+                icon: "file_open",
+                actions: {
+                    click: [e => {
+                        
+                    }]
+                }
+            },
+            {spacer:true},
+            {
+                label: "Export",
+                icon: "file_open",
+                actions: {
+                    click: [e => {
+                        
+                    }]
+                }
+            },
+            {
+                label: "Close",
+                icon: "file_open",
+                actions: {
+                    click: [e => {
+                        window.close();
+                    }]
+                }
+            }
+        ]
+    },
+
+    {
+        label: "Edit",
+        submenu: [{
+            label: (li, itm) => {
+                const icon = document.createElement('span');
+                icon.innerHTML = 'Close';
+                li.appendChild(icon);
+            },
+            actions: {
+                click: [e => {
+                    window.close();
+                }]
+            }
+        }]
+    }
+], document.getElementById('menu'));
+
+// Assign header nav to window for global access
+window.HeaderNav = HeaderNav;
+
+//Resize to fit nav size
 (()=>{
-
-    async function closeWindow() {
-        await ipcRenderer.invoke('win-close');
-    }
-
-    async function minimizeWindow() {
-        await ipcRenderer.invoke('win-minimize');
-    }
-
-    async function maximizeWindow() {
-        await ipcRenderer.invoke('win-maximize');
-    }
-    get('minimize').addEventListener('click', minimizeWindow);
-    get('maximize').addEventListener('click', maximizeWindow);
-    get('close').addEventListener('click', closeWindow);
+    const {height} = HeaderNav.rect();
+    BodyContainer.style.height = `calc(100% - ${height}px)`;
+    BodyContainer.style.marginTop = `${height}px`;
 })();
 
+// Main pages
+const MainPages = {
+    MapEditor: new Main.Modules.MapEditor(BodyContainer),
+}
