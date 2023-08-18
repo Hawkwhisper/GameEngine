@@ -4,13 +4,21 @@
     --palette-dark1: #07070A;
     --palette-dark1-alpha: #07070A0F;
     --palette-dark2: #1a1e1e;
+    --palette-dark2-alpha: #1a1e1e0F;
     --palette-dark3: #041F1E;
     --palette-mid1: #24272B;
     --palette-mid2: #4A525A;
     --palette-mid2-alpha: #4A525A1F;
     --palette-light1: #004BA8;
+    --palette-light1-alpha: #004BA82F;
     --palette-light2: #3E78B2;
     --palette-light3: #dee7f0;
+
+    /* Scrollbars */
+
+    --bg-scrollbar-track: var(--palette-dark1);
+    --bg-scrollbar-thumb: var(--palette-light1);
+    --bg-scrollbar-thumb-hover: var(--palette-light2);
 
     /* Nav */
     --nav-bg-button: var(--palette-dark1-alpha);
@@ -28,13 +36,20 @@
 
     --nav-sh-box: 0px 0px .25em var(--palette-dark2) inset, 0px .015em .1em #000;
     --nav-sh-menu: 0px 0px .25em var(--palette-dark2) inset, 0px .015em .1em #00000020;
-    
+
     /* Fonts */
     --font-main: MainFont;
-    --font-header: monospace;
+    --font-fancy: FancyFont;
+    --font-header: FancyFont;
 
     /* Foreground Colors */
     --fg-default: var(--palette-light3);
+
+    --fg-select-dom: var(--palette-light3);
+    --fg-select-dom-hover: var(--palette-light2);
+
+    --fg-grid-linecolor1: transparent;
+    --fg-grid-linecolor2: var(--palette-light1);
 
     /* Background Colors */
     --bg-default: linear-gradient(0deg, var(--palette-dark1) 0%, var(--palette-dark2) 100%);
@@ -43,12 +58,15 @@
 
     --bg-sidebar: var(--palette-dark2);
 
+    --bg-select-dom: var(--palette-dark2-alpha);
+    --bg-select-dom-hover: var(--palette-dark1);
+
     /* Shadows */
-    --sh-text-default: 0px 0px .0125em #000, 
-    .0125em .0125em .0125em var(--palette-dark1),
-    .0125em -.0125em .0125em var(--palette-dark2),
-    -.0125em -.0125em .0125em var(--palette-dark1),
-    -.0125em .0125em .0125em var(--palette-dark3);
+    --sh-text-default: 0px 0px .0125em #000,
+        .0125em .0125em .0125em var(--palette-dark1),
+        .0125em -.0125em .0125em var(--palette-dark2),
+        -.0125em -.0125em .0125em var(--palette-dark1),
+        -.0125em .0125em .0125em var(--palette-dark3);
 
     --sh-box-win: .015em .015em 1em #000, 0px 0px .05em var(--palette-mid2) inset;
     --sh-box-default: .015em .015em .015em #000, 0px 0px .05em var(--palette-mid2) inset;
@@ -61,10 +79,12 @@
     --bd-default-side-bottom-color: var(--palette-mid2);
     --bd-default-side-left-color: var(--palette-mid1);
     --bd-default-side-right-color: var(--palette-mid2);
-    
+
+    --bd-input-select: solid 1px var(--palette-mid1);
+
     --bd-sidebar: dashed 1px var(--palette-mid2-alpha);
-    
-    --bd-default-radius: 32px;
+
+    --bd-default-radius: 6px;
     --bd-win-radius: 16px;
 
     /* Margins / Paddings */

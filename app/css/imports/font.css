@@ -2,3 +2,8 @@
     font-family: MainFont;
     src: url(../../resources/Fonts/SquadOne/SquadaOne-Regular.ttf);
 }
+
+@font-face {
+    font-family: FancyFont;
+    src: url(../../resources/Fonts/Iconsolata/Inconsolata-VariableFont_wdth\,wght.ttf);
+}

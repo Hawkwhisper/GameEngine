@@ -1,10 +1,13 @@
+/* General */
+
 * {
     font-family: var(--font-main);
     color: var(--fg-default);
     text-shadow: var(--sh-text-default);
 }
 
-img, canvas {
+img,
+canvas {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     image-rendering: optimizeSpeed;
@@ -16,5 +19,109 @@ img, canvas {
     position: absolute;
     top: 0px;
     left: 0px;
-    background: black;
+}
+
+select,
+input,
+.ui.dropdown {
+    background: var(--bg-select-dom);
+    color: inherit;
+    display: block;
+    outline: none;
+    padding: var(--pd-standard);
+    margin: 0px;
+    border: var(--bd-input-select);
+    box-shadow: var(--sh-box-default);
+    position: relative;
+}
+
+input {
+    width: calc(calc(100% - 2px) - calc(2 * var(--pd-standard)));
+}
+
+.ui.dropdown {
+    list-style-type: none;
+}
+
+/* Custom UI elements */
+
+.ui.dropdown::before {
+    content: ' ';
+    background-image: url(`../../../../resources/Icons/arr_down.png);
+    background-size: contain;
+    filter: invert(100%);
+    position: absolute;
+    top: 50%;
+    pointer-events: none;
+    right: 0px;
+    transform: translateY(-50%);
+    width: 1em;
+    height: 1em;
+}
+
+.ui.dropdown li ul {
+    margin: var(--pd-standard);
+    padding: var(--pd-standard);
+    position: absolute;
+    left: 0px;
+    background: var(--palette-dark1);
+    overflow: auto !important;
+    z-index: 500;
+    box-shadow: var(--sh-box-default);
+    border-radius: var(--bd-default-radius);
+}
+
+.ui.dropdown li {
+    display: relative;
+    font-family: var(--font-fancy);
+    font-size: 0.89456em;
+    cursor: default;
+}
+
+.ui.dropdown li * li {
+    display: block;
+    border: var(--bd-input-select);
+    margin: var(--pd-standard);
+    padding: var(--pd-standard);
+    background: var(--bg-select-dom);
+    color: var(--fg-select-dom);
+    box-shadow: var(--sh-box-default);
+    text-shadow: var(--sh-text-default);
+}
+
+.ui.dropdown li * li:hover  {
+    background: var(--bg-select-dom-hover);
+    color: var(--fg-select-dom-hover);
+}
+
+.ui.dropdown li ul > li ul {
+    display: block !important;
+    position: relative !important;
+    margin: var(--pd-standard) !important;
+    max-height: unset !important;
+    overflow: unset !important;
+}
+
+.container.main.mapSelector {
+    min-height: 256px;
+}
+
+/* Grids */
+
+.grid {
+    display: grid;
+}
+
+.grid.c2 {
+    grid-template-columns: 50% 50%;
+}
+
+/* Positions */
+
+.absolute {
+    position: absolute;
+}
+
+.absolute.bottomAlign {
+    bottom: 0px;
 }

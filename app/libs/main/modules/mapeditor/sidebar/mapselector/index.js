@@ -15,7 +15,7 @@ class MapSelector {
 
     _createContainer() {
         this._container = document.createElement('div');
-        this._container.classList.add(`container`, `main`, `sidebar`);
+        this._container.classList.add(`container`, `main`, `mapSelector`);
         this.parent.appendChild(this._container);
     }
 }
